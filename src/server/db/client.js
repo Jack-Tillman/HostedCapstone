@@ -1,14 +1,37 @@
 const { Client } = require("pg");
-const connectionString =
-  process.env.DATABASE_URL || "http://localhost:5432/capstone-db";
+require('dotenv').config();
+let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 const db = new Client({
-  connectionString,
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? { rejectUnauthorized: false }
-      : undefined,
+   host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: {
+    require: true,
+  },
 });
 
 module.exports = db;
 
+
+
+
+
+
+// const pool = new Pool({
+
+// });
+
+// async function getPgVersion() {
+//   const client = await pool.connect();
+//   try {
+//     const result = await client.query('SELECT version()');
+//     console.log(result.rows[0]);
+//   } finally {
+//     client.release();
+//   }
+// }
+
+// getPgVersion();
