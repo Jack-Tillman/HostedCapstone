@@ -40,8 +40,8 @@ app.post("/checkout", async(req, res) => {
   const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel"
+      success_url: "https://the-capstone-project-gg9q9px0t-jack-tillmans-projects.vercel.app/success",
+      cancel_url: "https://the-capstone-project-gg9q9px0t-jack-tillmans-projects.vercel.app//cancel"
   })
 
   res.send(JSON.stringify({

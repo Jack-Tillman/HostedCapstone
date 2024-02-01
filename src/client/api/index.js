@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://the-capstone-project-gg9q9px0t-jack-tillmans-projects.vercel.app:3000/api";
 
 export async function fetchItems(category) {
   try {
